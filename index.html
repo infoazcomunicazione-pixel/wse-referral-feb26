@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Porta un amico a Wall Street English e ricevi premi straordinari! 3 mesi gratis + trolley esclusivo.">
+    <meta name="description" content="Porta amici a Wall Street English e vinci premi! 1 amico = Trolley, 2 amici = 3 mesi gratis!">
     <meta property="og:title" content="Wall Street English - Programma Referral Febbraio 2026">
-    <meta property="og:description" content="Invita un amico e ricevi un trolley! Il tuo amico ottiene 3 mesi gratis! 🎁">
+    <meta property="og:description" content="Più amici porti, più vinci! 1 amico = Trolley, 2 amici = 3 mesi gratis! 🎁">
     <title>Wall Street English - Referral Febbraio 2026</title>
     <style>
         * {
@@ -18,6 +18,7 @@
             --wse-red: #f12c3e;
             --wse-blue: #003359;
             --wse-light-blue: #0A5A8A;
+            --wse-gold: #FFD700;
             --text-dark: #1a1a1a;
             --text-gray: #666;
             --bg-light: #f8f9fa;
@@ -40,7 +41,7 @@
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
         }
 
-        /* Header Sticky */
+        /* Header */
         .header {
             background: var(--white);
             padding: 25px 20px;
@@ -70,12 +71,17 @@
             box-shadow: 0 4px 15px rgba(241, 44, 62, 0.3);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             background: linear-gradient(135deg, var(--wse-blue) 0%, var(--wse-light-blue) 100%);
             color: var(--white);
             padding: 40px 20px;
             text-align: center;
+        }
+
+        .hero-emoji {
+            font-size: 60px;
+            margin-bottom: 20px;
         }
 
         .hero-title {
@@ -88,58 +94,24 @@
         .hero-subtitle {
             font-size: 18px;
             opacity: 0.95;
-            margin-bottom: 30px;
-        }
-
-        .hero-emoji {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-
-        /* Quick Benefits */
-        .quick-benefits {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding: 20px;
-            background: var(--bg-light);
-        }
-
-        .benefit-card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .benefit-card:active {
-            transform: scale(0.95);
-        }
-
-        .benefit-icon {
-            font-size: 40px;
             margin-bottom: 10px;
         }
 
-        .benefit-title {
-            color: var(--wse-red);
+        .hero-highlight {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid var(--wse-gold);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px auto 0;
+            max-width: 400px;
             font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 600;
         }
 
-        .benefit-text {
-            color: var(--text-gray);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        /* Steps Section */
-        .steps-section {
+        /* Rewards Section */
+        .rewards-section {
             padding: 30px 20px;
-            background: var(--white);
+            background: var(--bg-light);
         }
 
         .section-title {
@@ -148,6 +120,81 @@
             font-weight: bold;
             text-align: center;
             margin-bottom: 25px;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .reward-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reward-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--wse-red), var(--wse-gold));
+        }
+
+        .reward-card:active {
+            transform: scale(0.98);
+        }
+
+        .reward-level {
+            background: var(--wse-red);
+            color: var(--white);
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .reward-card.premium .reward-level {
+            background: linear-gradient(135deg, var(--wse-gold), #FFA500);
+            color: var(--text-dark);
+        }
+
+        .reward-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .reward-title {
+            color: var(--wse-blue);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .reward-description {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* How it Works */
+        .steps-section {
+            padding: 30px 20px;
+            background: var(--white);
         }
 
         .step {
@@ -204,6 +251,106 @@
             padding-left: 60px;
         }
 
+        /* Friend Counter Box */
+        .friend-counter-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            padding: 30px 20px;
+            border-top: 3px solid var(--wse-red);
+            border-bottom: 3px solid var(--wse-red);
+        }
+
+        .counter-title {
+            color: var(--wse-blue);
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .counter-display {
+            background: var(--white);
+            border: 3px solid var(--wse-red);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 12px rgba(241, 44, 62, 0.15);
+        }
+
+        .counter-number {
+            font-size: 72px;
+            font-weight: bold;
+            color: var(--wse-red);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            color: var(--text-gray);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .progress-rewards {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .reward-checkpoint {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .reward-checkpoint.achieved {
+            border-color: var(--wse-gold);
+            background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+        }
+
+        .checkpoint-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: #f0f0f0;
+            flex-shrink: 0;
+        }
+
+        .reward-checkpoint.achieved .checkpoint-icon {
+            background: linear-gradient(135deg, var(--wse-gold), #FFA500);
+        }
+
+        .checkpoint-info {
+            flex: 1;
+        }
+
+        .checkpoint-number {
+            color: var(--wse-red);
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .checkpoint-prize {
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .checkpoint-status {
+            font-size: 20px;
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--bg-light);
@@ -246,7 +393,7 @@
             box-shadow: 0 4px 12px rgba(241, 44, 62, 0.4);
         }
 
-        /* Form Modal */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -348,29 +495,6 @@
             to { opacity: 1; }
         }
 
-        .progress-bar {
-            height: 6px;
-            background: #e0e0e0;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--wse-red) 0%, #ff3844 100%);
-            transition: width 0.4s ease;
-            border-radius: 10px;
-        }
-
-        .progress-text {
-            color: var(--text-gray);
-            font-size: 13px;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
         .form-group {
             margin-bottom: 20px;
         }
@@ -397,6 +521,66 @@
             outline: none;
             border-color: var(--wse-red);
             box-shadow: 0 0 0 3px rgba(241, 44, 62, 0.1);
+        }
+
+        .friend-entry {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .friend-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .friend-entry-title {
+            color: var(--wse-blue);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .remove-friend-btn {
+            background: transparent;
+            border: 2px solid var(--wse-red);
+            color: var(--wse-red);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .remove-friend-btn:active {
+            background: var(--wse-red);
+            color: var(--white);
+        }
+
+        .add-friend-btn {
+            background: var(--white);
+            border: 2px dashed var(--wse-blue);
+            color: var(--wse-blue);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .add-friend-btn:active {
+            background: #f0f8ff;
         }
 
         .checkbox-wrapper {
@@ -516,6 +700,45 @@
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 25px;
+        }
+
+        .success-rewards {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+            border: 3px solid var(--wse-gold);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .success-rewards-title {
+            color: var(--wse-blue);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .success-reward-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .success-reward-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .success-reward-icon {
+            font-size: 28px;
+        }
+
+        .success-reward-text {
+            color: var(--text-dark);
+            font-size: 15px;
+            font-weight: 600;
         }
 
         /* Requirements */
@@ -655,7 +878,7 @@
 
         /* Responsive */
         @media (max-width: 480px) {
-            .quick-benefits {
+            .rewards-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -671,6 +894,10 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .counter-number {
+                font-size: 60px;
+            }
         }
     </style>
 </head>
@@ -681,7 +908,7 @@
             <svg class="logo" viewBox="0 0 226.772 172.913" xmlns="http://www.w3.org/2000/svg">
                 <defs><style>.cls-1{fill:#fff;}.cls-2{fill:#003359;}.cls-3{fill:#f12c3e;}</style></defs>
                 <polygon class="cls-1" points="0 0 0 172.913 226.772 172.913 226.772 0 0 0 0 0"/>
-                <path class="cls-2" d="M179.873,80.4026c.668-1.2815,1.599-3.2564-.732-4.2558-1.807-.7762-3.242-1.2691-3.242-1.2691A3.6165,3.6165,0,0,1,175.9,77.14a36.5463,36.5463,0,0,1-1.986,4.5992c-1.646.031-2.098-.1757-1.948-.88,0,0-.688.4729-.266,1.6925a2.3413,2.3413,0,0,0,1.205,1.24c-.268.5346-.551,1.0948-.846,1.6748a71.36,71.36,0,0,1-8.356,6.8562c-2.14,1.3867-1.969-1.4893-1.336-3.1145.156-.3416.313-.6631.471-.9716a12.2153,12.2153,0,0,0,5.577-2.5595c2.761-2.3154,2.402-3.8575,1.499-4.5195a6.9047,6.9047,0,0,0-2.67-1.179,3.153,3.153,0,0,0-2.104.4683,12.2737,12.2737,0,0,0-5.64,8.2257c-1.372.9075-2.337,1.984-3.829,3.1158-1.563,1.1847-2.003.4195-2.138-.5226a5.6865,5.6865,0,0,1,.836-2.6538,12.5805,12.5805,0,0,0,5.995-4.167c.835-1.0766,1.644-2.4264.357-3.2068a13.6241,13.6241,0,0,0-2.163-.7652,1.8986,1.8986,0,0,0-1.422.0665c-.702.3515-2.594,1.3787-4.562,5.0422a13.8589,13.8589,0,0,0-1.001,2.3073c-.693-.6317-.224-2.3844.109-3.1412.409-.9325,1.158-2.3137.989-3.0137a2.39,2.39,0,0,0-1.696-1.545c-.843-.2264-1.276.3114-1.743,1.0907a74.9424,74.9424,0,0,1-4.749,7.1c-.175-.3367,2.099-4.3245,2.446-4.9883.437-.84-.427-1.5833-.427-1.5833a6.81,6.81,0,0,0-1.375-.9029c-.779-.3772-1.48-.0567-2.585.9244-2.799,2.74-8.006,10.0737-8.687,10.9411s-1.29,1.609-1.687,1.3942c-.545-.3282-.514-1.7361.834-4.471,2.032-3.8589,4.077-7.061,5.672-9.6666.274-.0585.556-.1209.848-.19,4.827-1.1283,13.527-3.0169,17.876-2.1728,4.045.7846,4.619,2.6672,7.887,1.9263.551-3.3141-.722-5.438-2.798-5.9592s-7.225-.0662-10.832.5078c-3.053.4853-6.804,1.3034-10.96,2.3.988-2.3331-.015-3.2075-.959-3.6607-.871-.4173-3.641-1.5886-3.641-1.5886a3.8783,3.8783,0,0,1,.434,2.8764,39.67,39.67,0,0,1-1.581,3.7565c-2.594.5592-4.121.5926-4.052-.8646a2.1267,2.1267,0,0,0,.317,2.6419,4.2442,4.2442,0,0,0,2.531.9251c-.816,1.8633-1.704,3.9769-2.514,6.1779-2.158,5.8616-1.58,7.3667-.025,8.4042s2.736.25,4.851-3.1476,4.681-7.2322,7.015-9.293a26.6664,26.6664,0,0,0-3.104,6.9769c-.474,1.7294-.163,2.4224.229,2.9943a3.5266,3.5266,0,0,0,1.831,1.4059c.881.2986,1.01-.1839,1.304-.866a55.8178,55.8178,0,0,1,5.661-10.2463c-.561,1.5931-.465,5.264,2.327,5.9144-.398,1.9531.095,3.3691,1.338,4.1019,1.855,1.0921,3.073.6286,4.524-1.1335a12.65,12.65,0,0,1,2.175-2.1982,14.1236,14.1236,0,0,0-.106,1.446,3.3466,3.3466,0,0,0,4.997,3.0271,87.1671,87.1671,0,0,0,6.767-6.5868c-.205.3959-.413.7973-.627,1.2087-1.033,2.0425-1.71,4.4558-.929,6.5s2.976,2.7193,5.053,1.4523s6.199-3.5582,11.464-10.74c-2.24,1.9-10.292,7.7-12.669,8.7789-.486.1433-.663-.1028-.438-.8867a89.1806,89.1806,0,0,1,4.842-9.4825c.103-.0113.202-.0205.308-.0338,3.847-.5093,9.72-2.781,12.533-4.115-1.778.2976-7.178.8385-11.192,1.1864.173-.3215.35-.6532.514-.9691Zm-24.701,6.8463a21.7393,21.7393,0,0,1,3.616-4.3766c1.165-.8589,1.58-.3969,1.204.2937a11.19,11.19,0,0,1-4.82,4.0829Zm8.138.1151c2.382-4.1741,4.771-4.8622,5.947-4.9756.136.3817.253,1.1255-2.171,3.1747a7.81,7.81,0,0,1-3.776,1.8009Z"/>
+                <path class="cls-2" d="M179.873,80.4026c.668-1.2815,1.599-3.2564-.732-4.2558-1.807-.7762-3.242-1.2691-3.242-1.2691A3.6165,3.6165,0,0,1,175.9,77.14a36.5463,36.5463,0,0,1-1.986,4.5992c-1.646.031-2.098-.1757-1.948-.88,0,0-.688.4729-.266,1.6925a2.3413,2.3413,0,0,0,1.205,1.24c-.268.5346-.551,1.0948-.846,1.6748a71.36,71.36,0,0,1-8.356,6.8562c-2.14,1.3867-1.969-1.4893-1.336-3.1145.156-.3416.313-.6631.471-.9716a12.2153,12.2153,0,0,0,5.577-2.5595c2.761-2.3154,2.402-3.8575,1.499-4.5195a6.9047,6.9047,0,0,0-2.67-1.179,3.153,3.153,0,0,0-2.104.4683,12.2737,12.2737,0,0,0-5.64,8.2257c-1.372.9075-2.337,1.984-3.829,3.1158-1.563,1.1847-2.003.4195-2.138-.5226a5.6865,5.6865,0,0,1,.836-2.6538,12.5805,12.5805,0,0,0,5.995-4.167c.835-1.0766,1.644-2.4264.357-3.2068a13.6241,13.6241,0,0,0-2.163-.7652,1.8986,1.8986,0,0,0-1.422.0665c-.702.3515-2.594,1.3787-4.562,5.0422a13.8589,13.8589,0,0,0-1.001,2.3073c-.693-.6317-.224-2.3844.109-3.1412.409-.9325,1.158-2.3137.989-3.0137a2.39,2.39,0,0,0-1.696-1.545c-.843-.2264-1.276.3114-1.743,1.0907a74.9424,74.9424,0,0,1-4.749,7.1c-.175-.3367,2.099-4.3245,2.446-4.9883.437-.84-.427-1.5833-.427-1.5833a6.81,6.81,0,0,0-1.375-.9029c-.779-.3772-1.48-.0567-2.585.9244-2.799,2.74-8.006,10.0737-8.687,10.9411s-1.29,1.609-1.687,1.3942c-.545-.3282-.514-1.7361.834-4.471,2.032-3.8589,4.077-7.061,5.672-9.6666.274-.0585.556-.1209.848-.19,4.827-1.1283,13.527-3.0169,17.876-2.1728,4.045.7846,4.619,2.6672,7.887,1.9263.551-3.3141-.722-5.438-2.798-5.9592s-7.225-.0662-10.832.5078c-3.053.4853-6.804,1.3034-10.96,2.3.988-2.3331-.015-3.2075-.959-3.6607-.871-.4173-3.641-1.5886-3.641-1.5886a3.8783,3.8783,0,0,1,.434,2.8764,39.67,39.67,0,0,1-1.581,3.7565c-2.594.5592-4.121.5926-4.052-.8646a2.1267,2.1267,0,0,0,.317,2.6419,4.2442,4.2442,0,0,0,2.531.9251c-.816,1.8633-1.704,3.9769-2.514,6.1779-2.158,5.8616-1.58,7.3667-.025,8.4042s2.736.25,4.851-3.1476,4.681-7.2322,7.015-9.293a26.6664,26.6664,0,0,0-3.104,6.9769c-.474,1.7294-.163,2.4224.229,2.9943a3.5266,3.5266,0,0,0,1.831,1.4059c.881.2986,1.01-.1839,1.304-.866a55.8178,55.8178,0,0,1,5.661-10.2463c-.561,1.5931-.465,5.264,2.327,5.9144-.398,1.9531.095,3.3691,1.338,4.1019,1.855,1.0921,3.073.6286,4.524-1.1335a12.65,12.65,0,0,1,2.175-2.1982,14.1236,14.1236,0,0,0-.106,1.446,3.3466,3.3466,0,0,0,4.997,3.0271,87.1671,87.1671,0,0,0,6.767-6.5868c-.205.3959-.413.7973-.627,1.2087-1.033,2.0425-1.71,4.4558-.929,6.5s2.976,2.7193,5.053,1.4523,6.199-3.5582,11.464-10.74c-2.24,1.9-10.292,7.7-12.669,8.7789-.486.1433-.663-.1028-.438-.8867a89.1806,89.1806,0,0,1,4.842-9.4825c.103-.0113.202-.0205.308-.0338,3.847-.5093,9.72-2.781,12.533-4.115-1.778.2976-7.178.8385-11.192,1.1864.173-.3215.35-.6532.514-.9691Zm-24.701,6.8463a21.7393,21.7393,0,0,1,3.616-4.3766c1.165-.8589,1.58-.3969,1.204.2937a11.19,11.19,0,0,1-4.82,4.0829Zm8.138.1151c2.382-4.1741,4.771-4.8622,5.947-4.9756.136.3817.253,1.1255-2.171,3.1747a7.81,7.81,0,0,1-3.776,1.8009Z"/>
                 <path class="cls-2" d="M131.528,72.4817c1.721-4.0109-1.232-5.0839-5.464-7.2911a3.7633,3.7633,0,0,0-2.659-.17,22.9583,22.9583,0,0,0-7.761,4.9366c-5.483,5.5952-10.987,12.4267,4.17,14.6084,3.397.4891,4.915,1.5294,4.313,2.92-2.159,5.4888-14.53,4.985-15.478,4.9261s-.898-.5513-.474-1.1622a31.3688,31.3688,0,0,1,6.591-6.4829c-6.681,2.1515-9.567,4.3278-10.572,5.1759s-1.929,1.78-1.085,3.074c4.382,6.6737,17.788,4.5987,22.98.277s.978-8.3461-4.093-9.5859c-3.267-.8-2.775-.5746-5.537-1.3854-2.666-.7841-2.261-3.9777.976-6.8286,6.754-5.6962,9.586-4.8431,9.586-4.8431.26,2.85-1.923,8.5226-4.338,12.11,4.724-3.5049,7.125-6.268,8.845-10.2788Z"/>
                 <path class="cls-2" d="M164.053,115.83c1.013-1.359,1.353-1.905,1.353-1.905a.5488.5488,0,0,0-.145-.807c-.445-.337-1.656-1.202-1.844-.732-.205.527-1.229,3.236-1.737,4.743a2.9835,2.9835,0,0,0,2.373-1.299Zm30.485-10.905a2.14,2.14,0,0,0-.823-1.913,9.7108,9.7108,0,0,0-1.538-1.111c-1.146-.655-2.527.025-3.577,1.177a42.0164,42.0164,0,0,0-6.522,9.099c-1.108,1.944-2.094,3.876-2.921,5.617-1.929,1.028-4.238,2.206-6.498,3.338a21.9353,21.9353,0,0,0-4.105-.649c-.452-.063-.401-.161-.185-.494,1.448-2.137,4.556-3.294,5.098-3.481.544-.188,1.054-.264.777.125s-.95,1.163-.95,1.163a10.5983,10.5983,0,0,0,3.207-1.66,1.2779,1.2779,0,0,0,.243-1.763c-.408-.625-1.19-1.646-1.491-2.018a1.1636,1.1636,0,0,0-1.22-.44c-.482.104-3.426.533-6.759,4.127-.972,1.093-1.907,2.936-1.633,4.148a36.7477,36.7477,0,0,1-5.107,5.443c.887-2.605,1.648-4.875,1.987-5.917s-.412-1.429-1.164-1.854c-.433-.243-.754-.236-1.849.645-1.586,1.508-6.496,5.581-7.146,6.132s-.971.658-.836-.163a16.4406,16.4406,0,0,1,.549-1.732,45.0488,45.0488,0,0,0,3.653-2.915c5.322-4.778,8.705-10.523,9.68-15.671a1.4684,1.4684,0,0,0-.53-1.542,17.2377,17.2377,0,0,0-1.578-1.112,1.6787,1.6787,0,0,0-1.52.087c-.726.4-2.869,1.787-7.31,8.563a45.175,45.175,0,0,0-5.125,11.292,9.329,9.329,0,0,0-.424,1.973c-1.185.775-2.268,1.45-3.299,2.061,1.48-3.933,2.667-7.893,2.953-8.729a1.9487,1.9487,0,0,0-.32-2.29,5.1776,5.1776,0,0,0-1.546-.769,1.3575,1.3575,0,0,1,.035,1.421c-.156.345-.667,1.507-1.467,2.969a1.42,1.42,0,0,0-.303-1.045,21.6677,21.6677,0,0,0-2.282-2.059,1.7184,1.7184,0,0,0-1.513-.315,8.2417,8.2417,0,0,0-4.053,3.427,10.5052,10.5052,0,0,0-1.799,6.091c-.484.551-.983,1.112-1.362,1.526-.408.438-.706.342-.749-.579-.042-.893.705-5.098.875-7.808.064-1.213.025-1.335-.367-1.706s-1.296-1.196-2.194-.157c-.899,1.037-4.027,5.367-6.397,8.243,0,0,1.696-3.101,2.817-5.389.531-1.205.941-2.581-.358-3.285a17.0091,17.0091,0,0,0-3.709-1.427,2.6332,2.6332,0,0,1,.787,2.806c-.535,1.79-1.239,3.72-1.951,5.776-4.143,2.283-10.61,5.569-12.997,5.259-.253-2.965,1.595-6.171,3.447-8.846.789-.167,1.67-.375,2.79-.632,3.651-.839,6.138-1.359,6.237-.272,1.268-1.589.435-3.997-1.685-3.882a28.3513,28.3513,0,0,0-4.604.897c1.851-2.694,4.029-5.952,5.28-7.656,2.744-.564,5.239-1.068,6.954-1.316,2.08-.215,2.206-.257,1.319.999-.889,1.255-2.923,3.907-3.974,5.482a55.7209,55.7209,0,0,0,7.397-3.96c1.921-1.308,1.575-2.365,1.194-3.143a27.5485,27.5485,0,0,0-1.554-2.44s-1.045-1.702-3.802-1.169c-4.411.854-24.526,4.096-25.766,2.033,0,0-1.728,6.776,5.637,5.845,1.898-.24,4.192-.649,6.57-1.112-.704.613-2.979,2.809-6.342,8.148-2.355.193-4.452-.336-4.439-1.039,0,0-.274,3.497,2.788,3.772-.286.494-.577,1-.876,1.536-1.158,2.115-1.767,4.724-.49,6.99s4.698,3.034,8.532.926a87.0813,87.0813,0,0,0,7.87-4.897c-.066.2-.134.391-.199.593-.569,1.61-.244,2.383.345,2.879.555.466.956.714,1.885-.374.734-.858,4.049-5.267,6.173-7.741-.854,2.98-2.304,8.088.152,9.221s3.574-.995,4.76-2.473c.094-.116.168-.213.247-.314a2.2609,2.2609,0,0,0,.344.644c1.095,1.378,2.692,1.406,4.266.447a14.364,14.364,0,0,0,1.825-1.405c-.295.782-.698,1.794-1.191,2.908-1.867.929-3.854,1.841-6.297,2.967-6.337,2.917-7.774,3.904-8.529,5.838-.782,2.003,1.079,5.369,6.852,3.733,6.248-2.453,8.715-6.173,11.274-11.688.232-.502.463-1.015.69-1.533,1.182-.681,2.646-1.556,4.199-2.561a2.3543,2.3543,0,0,0,1.091,1.516,1.8238,1.8238,0,0,0,2.6-.107c1.142-.997,2.689-2.801,6.024-6.039-.587,1.562-1.345,3.608-1.897,5.358-.298.968-.149,1.57.603,1.918.754.349,1.98.968,2.794.158.785-.781,3.852-4.48,5.826-6.728a1.61,1.61,0,0,0,.655.36c1.69.502,3.63-.044,5.163.251-4.432,2.214-8.457,4.159-8.724,4.322a.6681.6681,0,0,0-.317.949,4.0527,4.0527,0,0,0,1.138,1.618c2.361,1.948,5.958.266,8.258-.959s3.808-3.264,2.372-5.098a3.2768,3.2768,0,0,0-.954-.806c1.655-.929,3.409-1.886,5.032-2.708a47.5145,47.5145,0,0,0-1.996,4.914c-.552,1.787.318,2.177,1.152,2.526.832.351,1.486-.462,2.507-1.643,2.246-2.62,4.691-5.2,4.691-5.2s.116-.12.124.031c.015.27-.024.518-1.244,3.234-.588,1.313-1.343,4.152-.198,5.948,1.228,1.925,3.646,1.598,5.263.564a22.9832,22.9832,0,0,0,4.778-3.964,26.0343,26.0343,0,0,1-4.623,2.085c-1.237.429-2.022.724-1.965-.705a47.8867,47.8867,0,0,1,1.749-7.129c.521-1.765.789-2.139-.904-2.747a1.3753,1.3753,0,0,0-1.62.423c-.952.752-5.16,4.851-6.546,6.105-.975.882-.6.065.395-1.865.857-1.426,1.746-2.802,2.635-4.11,11.778-7.572,11.643-11.556,11.675-12.392Zm-54.717,25.08a29.45,29.45,0,0,1-2.493,3.856c-3.192,4.101-9.073,6.663-9.908,4.367s2.949-3.956,4.804-4.862c1.504-.734,4.435-1.888,7.597-3.361Zm4.247-9.881a18.75,18.75,0,0,1-4.506,5.081c-1.817,1.142-2.607.015-1.431-2.187s3.646-4.721,5.125-5.343c.735-.305,1.437-.285.812,2.449Zm8.871.51a52.9483,52.9483,0,0,1,3.411-6.333,76.7462,76.7462,0,0,1,6.873-9.216c.276-.304.598-.458.539.066a22.2717,22.2717,0,0,1-4.122,8.418,45.6675,45.6675,0,0,1-6.701,7.065Zm18.499,3.475a23.0437,23.0437,0,0,1-4.831,1.998c-.511.104-.627-.095.13-.531.431-.249,3.065-1.846,6.202-3.625.012.008.025.014.038.022.676.657-.418,1.509-1.539,2.136Zm20.423-15.963c-1.943,2.882-5.703,5.897-7.814,7.467a80.6513,80.6513,0,0,1,8.099-9.895c.853-.735.783.836-.285,2.428Z"/>
                 <path class="cls-2" d="M166.775,37.87a2.3776,2.3776,0,0,0-1.425-2.257s-1.762-.7013-2.232-.7878a2.2492,2.2492,0,0,0-1.539.609,11.3879,11.3879,0,0,0-1.358,1.3374c-.274.3276-.532.6473-.78.9618a32.4143,32.4143,0,0,0-5.759,12.61c-.278,1.4249-.554,3.01-.869,4.817-.048.2708-.087.5324-.121.7913-3.601,2.4689-3.068-.833-2.801-3.8951q.1005-1.1451.252-2.2579c5.993-6.7429,7.079-12.7446,7.113-14.5919.036-1.92-1.093-2.1339-1.093-2.1339A16.7511,16.7511,0,0,0,154.2,32.57a2.1142,2.1142,0,0,0-1.774.6373,29.4492,29.4492,0,0,0-7.446,18.886c.055,5.5263,3.445,7.5184,7.573,5.3323-.444,9.0888,7.719,8.78,11.421,4.6185a29.5034,29.5034,0,0,0,5.4-8.26c-4.7,6.7029-13.716,13.0615-12.207,1.9167.137-1.0109.31-1.9747.51-2.8938,9.386-11.3647,9.098-14.9375,9.098-14.9375ZM150.327,48.5572a53.1729,53.1729,0,0,1,3.645-12.778c.698-1.3986,1.543-1.6981,1.738-.9116.757,5.4362-3.732,11.625-5.383,13.69Zm14.118-9.5106c.047,1.292-1.778,6.5523-6.284,11.7992,2.193-7.89,6.284-11.7992,6.284-11.7992Z"/>
@@ -696,60 +923,98 @@
 
         <!-- Hero -->
         <div class="hero">
-            <div class="hero-emoji">🎉</div>
-            <h1 class="hero-title">Porta un Amico,<br>Vinci Subito!</h1>
-            <p class="hero-subtitle">Referral Program con premi straordinari</p>
+            <div class="hero-emoji">🎯</div>
+            <h1 class="hero-title">Più Amici Porti,<br>Più Vinci!</h1>
+            <p class="hero-subtitle">Programma Referral con premi progressivi</p>
+            <div class="hero-highlight">
+                ⭐ 1 Amico = Trolley | 2 Amici = 3 Mesi Gratis! ⭐
+            </div>
         </div>
 
-        <!-- Quick Benefits -->
-        <div class="quick-benefits">
-            <div class="benefit-card">
-                <div class="benefit-icon">🧳</div>
-                <div class="benefit-title">Per Te</div>
-                <div class="benefit-text">Trolley Esclusivo</div>
+        <!-- Rewards -->
+        <div class="rewards-section">
+            <h2 class="section-title">I Tuoi Premi</h2>
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <span class="reward-level">Livello 1</span>
+                    <div class="reward-icon">🧳</div>
+                    <h3 class="reward-title">Trolley Esclusivo</h3>
+                    <p class="reward-description">Porta 1 amico e ricevi subito il trolley Wall Street English</p>
+                </div>
+
+                <div class="reward-card premium">
+                    <span class="reward-level">Livello 2</span>
+                    <div class="reward-icon">🏆</div>
+                    <h3 class="reward-title">3 Mesi Gratis!</h3>
+                    <p class="reward-description">Porta 2 amici e ottieni 3 mesi di corso completamente gratuiti</p>
+                </div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">🎁</div>
-                <div class="benefit-title">Per Lui/Lei</div>
-                <div class="benefit-text">3 Mesi Gratis</div>
+        </div>
+
+        <!-- Friend Counter Preview -->
+        <div class="friend-counter-section">
+            <h3 class="counter-title">Il Tuo Progresso</h3>
+            <div class="counter-display">
+                <div class="counter-number" id="friendCountDisplay">0</div>
+                <div class="counter-label">Amici Invitati</div>
+            </div>
+
+            <div class="progress-rewards">
+                <div class="reward-checkpoint" id="checkpoint1">
+                    <div class="checkpoint-icon">🧳</div>
+                    <div class="checkpoint-info">
+                        <div class="checkpoint-number">1° Amico</div>
+                        <div class="checkpoint-prize">Trolley Esclusivo</div>
+                    </div>
+                    <span class="checkpoint-status">🔒</span>
+                </div>
+
+                <div class="reward-checkpoint" id="checkpoint2">
+                    <div class="checkpoint-icon">🏆</div>
+                    <div class="checkpoint-info">
+                        <div class="checkpoint-number">2° Amico</div>
+                        <div class="checkpoint-prize">3 Mesi Gratis</div>
+                    </div>
+                    <span class="checkpoint-status">🔒</span>
+                </div>
             </div>
         </div>
 
         <!-- Steps -->
         <div class="steps-section">
             <h2 class="section-title">Come Funziona</h2>
-
+            
             <div class="step">
                 <div class="step-header">
                     <div class="step-number">1</div>
-                    <div class="step-title">Invita un Amico</div>
+                    <div class="step-title">Invita i Tuoi Amici</div>
                 </div>
-                <p class="step-description">Compila il form con i tuoi dati e quelli del tuo amico interessato ai corsi</p>
+                <p class="step-description">Compila il form con i dati dei tuoi amici interessati ai corsi di inglese</p>
             </div>
 
             <div class="step">
                 <div class="step-header">
                     <div class="step-number">2</div>
-                    <div class="step-title">Il Tuo Amico Si Iscrive</div>
+                    <div class="step-title">I Tuoi Amici Si Iscrivono</div>
                 </div>
-                <p class="step-description">Quando si iscrive, riceve subito 3 mesi di corso completamente gratis!</p>
+                <p class="step-description">Il nostro team li contatterà per presentare l'offerta e aiutarli ad iscriversi</p>
             </div>
 
             <div class="step">
                 <div class="step-header">
                     <div class="step-number">3</div>
-                    <div class="step-title">Ricevi il Trolley</div>
+                    <div class="step-title">Ricevi i Tuoi Premi</div>
                 </div>
-                <p class="step-description">Ti invieremo il tuo trolley esclusivo Wall Street English direttamente a casa</p>
+                <p class="step-description">1 amico iscritto = Trolley | 2 amici iscritti = Trolley + 3 mesi gratis!</p>
             </div>
         </div>
 
         <!-- CTA -->
         <div class="cta-section">
             <h2 class="cta-title">Inizia Ora!</h2>
-            <p class="cta-subtitle">Bastano 2 minuti per completare il form</p>
+            <p class="cta-subtitle">Puoi invitare fino a 2 amici contemporaneamente</p>
             <button class="cta-button" onclick="openModal()">
-                Invita un Amico 🚀
+                Invita i Tuoi Amici 🚀
             </button>
         </div>
 
@@ -763,11 +1028,11 @@
                 </div>
                 <div class="requirement-item">
                     <div class="requirement-icon">👥</div>
-                    <div class="requirement-text">Nuovo studente</div>
+                    <div class="requirement-text">Nuovi studenti</div>
                 </div>
                 <div class="requirement-item">
                     <div class="requirement-icon">⏰</div>
-                    <div class="requirement-text">Estensione fino a Marzo</div>
+                    <div class="requirement-text">Valido Febbraio 2026</div>
                 </div>
             </div>
         </div>
@@ -775,7 +1040,7 @@
         <!-- Share -->
         <div class="share-section">
             <h3 class="share-title">Condividi l'Opportunità</h3>
-            <p class="share-text">Invia il link ai tuoi amici su WhatsApp, Instagram o TikTok!</p>
+            <p class="share-text">Invia il link ai tuoi amici!</p>
             <div class="share-buttons">
                 <button class="share-btn whatsapp" onclick="shareWhatsApp()">
                     <span>📱</span>
@@ -811,8 +1076,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button class="close-btn" onclick="closeModal()">×</button>
-                <h2 class="modal-title" id="modalTitle">I Tuoi Dati</h2>
-                <p class="modal-subtitle" id="modalSubtitle">Iniziamo con le tue informazioni</p>
+                <h2 class="modal-title">Invita i Tuoi Amici</h2>
+                <p class="modal-subtitle">Compila il form per iniziare</p>
             </div>
 
             <form id="referralForm" action="https://formsubmit.co/catania@wallstreet.it" method="POST">
@@ -821,16 +1086,12 @@
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
                 <input type="text" name="_honey" style="display:none">
-
+                
                 <div class="form-body">
-                    <!-- Progress -->
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill" style="width: 50%"></div>
-                    </div>
-                    <p class="progress-text" id="progressText">Passo 1 di 2</p>
-
                     <!-- Step 1: Your Info -->
                     <div class="form-step active" id="step1">
+                        <h3 style="color: var(--wse-blue); font-size: 20px; margin-bottom: 20px;">📝 I Tuoi Dati</h3>
+                        
                         <div class="form-group">
                             <label class="form-label">Il Tuo Nome Completo *</label>
                             <input type="text" class="form-input" name="Studente_Nome" id="yourName" placeholder="Es. Mario Rossi" required>
@@ -848,36 +1109,53 @@
 
                         <div class="info-box">
                             <div class="info-box-title">💡 Info</div>
-                            <div class="info-box-text">Useremo questi dati per inviarti il trolley quando il tuo amico si iscrive.</div>
+                            <div class="info-box-text">Useremo questi dati per inviarti i premi quando i tuoi amici si iscrivono.</div>
                         </div>
 
                         <button type="button" class="btn" onclick="goToStep2()">Avanti →</button>
                     </div>
 
-                    <!-- Step 2: Friend Info -->
+                    <!-- Step 2: Friends Info -->
                     <div class="form-step" id="step2">
-                        <div class="form-group">
-                            <label class="form-label">Nome del Tuo Amico *</label>
-                            <input type="text" class="form-input" name="Amico_Nome" id="friendName" placeholder="Es. Giulia Bianchi" required>
+                        <h3 style="color: var(--wse-blue); font-size: 20px; margin-bottom: 20px;">👥 Dati dei Tuoi Amici</h3>
+                        
+                        <div id="friendsContainer">
+                            <!-- Friend 1 (always present) -->
+                            <div class="friend-entry" data-friend-number="1">
+                                <div class="friend-entry-header">
+                                    <span class="friend-entry-title">1° Amico (Obbligatorio)</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Nome Completo *</label>
+                                    <input type="text" class="form-input friend-name" name="Amico_1_Nome" placeholder="Es. Giulia Bianchi" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Email *</label>
+                                    <input type="email" class="form-input friend-email" name="Amico_1_Email" placeholder="giulia.bianchi@email.com" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Telefono *</label>
+                                    <input type="tel" class="form-input friend-phone" name="Amico_1_Telefono" placeholder="+39 333 765 4321" required>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label">Email del Tuo Amico *</label>
-                            <input type="email" class="form-input" name="Amico_Email" id="friendEmail" placeholder="giulia.bianchi@email.com" required>
-                        </div>
+                        <button type="button" class="add-friend-btn" id="addFriendBtn" onclick="addSecondFriend()">
+                            <span style="font-size: 20px;">+</span>
+                            Aggiungi 2° Amico (Ottieni 3 Mesi Gratis!)
+                        </button>
 
-                        <div class="form-group">
-                            <label class="form-label">Telefono del Tuo Amico *</label>
-                            <input type="tel" class="form-input" name="Amico_Telefono" id="friendPhone" placeholder="+39 333 765 4321" required>
-                        </div>
-
+                        <input type="hidden" name="Numero_Amici" id="friendCount" value="1">
                         <input type="hidden" name="Programma" value="Referral Febbraio 2026">
                         <input type="hidden" name="Data_Invio" id="timestamp">
 
                         <div class="checkbox-wrapper">
                             <input type="checkbox" class="checkbox-input" id="consent" required>
                             <label class="checkbox-label" for="consent">
-                                Confermo che il mio amico acconsente ad essere contattato da Wall Street English
+                                Confermo che i miei amici acconsentono ad essere contattati da Wall Street English
                             </label>
                         </div>
 
@@ -892,20 +1170,26 @@
                         <button type="button" class="btn btn-secondary" onclick="goToStep1()">← Indietro</button>
                     </div>
 
-                    <!-- Success (will be shown after form submission) -->
+                    <!-- Success -->
                     <div class="form-step" id="successStep">
                         <div class="success-screen">
                             <div class="success-icon">✓</div>
                             <h3 class="success-title">Referral Inviato!</h3>
                             <p class="success-text">
-                                Grazie per aver partecipato! Il nostro team ti contatterà presto.
+                                Grazie per aver partecipato al nostro programma referral!
                             </p>
+
+                            <div class="success-rewards" id="successRewardsBox">
+                                <div class="success-rewards-title">🎁 I Tuoi Premi</div>
+                                <div id="successRewardsList"></div>
+                            </div>
+
                             <div class="info-box">
-                                <div class="info-box-title">🎁 Prossimi Passi</div>
+                                <div class="info-box-title">📞 Prossimi Passi</div>
                                 <div class="info-box-text">
-                                    1. Contatteremo il tuo amico<br>
-                                    2. Quando si iscrive, riceve 3 mesi gratis<br>
-                                    3. Riceverai il tuo trolley a casa!
+                                    1. Contatteremo i tuoi amici<br>
+                                    2. Quando si iscrivono, ricevi i premi<br>
+                                    3. Ti invieremo una conferma via email!
                                 </div>
                             </div>
                             <button type="button" class="btn" onclick="resetAndClose()">Fatto!</button>
@@ -926,7 +1210,75 @@
 
     <script>
         const pageURL = window.location.href;
-        const shareMessage = "🎉 Wall Street English - Porta un amico e ricevi un trolley! Il tuo amico ottiene 3 mesi GRATIS! Scopri di più:";
+        const shareMessage = "🎯 Wall Street English - Porta amici e vinci! 1 amico = Trolley, 2 amici = 3 mesi gratis! Scopri di più:";
+        let friendCount = 1;
+        let secondFriendAdded = false;
+
+        function updateFriendCounter() {
+            document.getElementById('friendCountDisplay').textContent = friendCount;
+            document.getElementById('friendCount').value = friendCount;
+
+            // Update checkpoints
+            if (friendCount >= 1) {
+                document.getElementById('checkpoint1').classList.add('achieved');
+                document.querySelector('#checkpoint1 .checkpoint-status').textContent = '✓';
+            } else {
+                document.getElementById('checkpoint1').classList.remove('achieved');
+                document.querySelector('#checkpoint1 .checkpoint-status').textContent = '🔒';
+            }
+
+            if (friendCount >= 2) {
+                document.getElementById('checkpoint2').classList.add('achieved');
+                document.querySelector('#checkpoint2 .checkpoint-status').textContent = '✓';
+            } else {
+                document.getElementById('checkpoint2').classList.remove('achieved');
+                document.querySelector('#checkpoint2 .checkpoint-status').textContent = '🔒';
+            }
+        }
+
+        function addSecondFriend() {
+            if (secondFriendAdded) return;
+
+            const friendHTML = `
+                <div class="friend-entry" data-friend-number="2" id="friend2Entry">
+                    <div class="friend-entry-header">
+                        <span class="friend-entry-title">2° Amico (Premio: 3 Mesi Gratis!)</span>
+                        <button type="button" class="remove-friend-btn" onclick="removeSecondFriend()">Rimuovi</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nome Completo *</label>
+                        <input type="text" class="form-input friend-name" name="Amico_2_Nome" placeholder="Es. Marco Verdi">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input friend-email" name="Amico_2_Email" placeholder="marco.verdi@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Telefono *</label>
+                        <input type="tel" class="form-input friend-phone" name="Amico_2_Telefono" placeholder="+39 333 987 6543">
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('friendsContainer').insertAdjacentHTML('beforeend', friendHTML);
+            document.getElementById('addFriendBtn').style.display = 'none';
+            
+            friendCount = 2;
+            secondFriendAdded = true;
+            updateFriendCounter();
+        }
+
+        function removeSecondFriend() {
+            document.getElementById('friend2Entry').remove();
+            document.getElementById('addFriendBtn').style.display = 'flex';
+            
+            friendCount = 1;
+            secondFriendAdded = false;
+            updateFriendCounter();
+        }
 
         function openModal() {
             document.getElementById('modal').classList.add('active');
@@ -955,40 +1307,31 @@
 
             document.getElementById('step1').classList.remove('active');
             document.getElementById('step2').classList.add('active');
-            document.getElementById('progressFill').style.width = '100%';
-            document.getElementById('progressText').textContent = 'Passo 2 di 2';
-            document.getElementById('modalTitle').textContent = 'Dati del Tuo Amico';
-            document.getElementById('modalSubtitle').textContent = 'Chi vuoi invitare?';
         }
 
         function goToStep1() {
             document.getElementById('step2').classList.remove('active');
             document.getElementById('step1').classList.add('active');
-            document.getElementById('progressFill').style.width = '50%';
-            document.getElementById('progressText').textContent = 'Passo 1 di 2';
-            document.getElementById('modalTitle').textContent = 'I Tuoi Dati';
-            document.getElementById('modalSubtitle').textContent = 'Iniziamo con le tue informazioni';
         }
 
         // Handle form submission
         document.getElementById('referralForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validate all friend inputs that are present
+            const friendEntries = document.querySelectorAll('.friend-entry');
+            for (let entry of friendEntries) {
+                const inputs = entry.querySelectorAll('input[required]');
+                for (let input of inputs) {
+                    if (!input.value.trim()) {
+                        alert('⚠️ Compila tutti i campi degli amici inseriti!');
+                        return;
+                    }
+                }
+            }
 
-            const friendName = document.getElementById('friendName').value.trim();
-            const friendEmail = document.getElementById('friendEmail').value.trim();
-            const friendPhone = document.getElementById('friendPhone').value.trim();
             const consent = document.getElementById('consent').checked;
             const terms = document.getElementById('terms').checked;
-
-            if (!friendName || !friendEmail || !friendPhone) {
-                alert('⚠️ Compila tutti i campi!');
-                return;
-            }
-
-            if (!validateEmail(friendEmail)) {
-                alert('⚠️ Email del tuo amico non valida!');
-                return;
-            }
 
             if (!consent || !terms) {
                 alert('⚠️ Accetta entrambe le condizioni!');
@@ -997,6 +1340,28 @@
 
             // Set timestamp
             document.getElementById('timestamp').value = new Date().toLocaleString('it-IT');
+
+            // Update success message based on friend count
+            const rewardsList = document.getElementById('successRewardsList');
+            if (friendCount === 1) {
+                rewardsList.innerHTML = `
+                    <div class="success-reward-item">
+                        <span class="success-reward-icon">🧳</span>
+                        <span class="success-reward-text">Trolley Esclusivo Wall Street English</span>
+                    </div>
+                `;
+            } else {
+                rewardsList.innerHTML = `
+                    <div class="success-reward-item">
+                        <span class="success-reward-icon">🧳</span>
+                        <span class="success-reward-text">Trolley Esclusivo Wall Street English</span>
+                    </div>
+                    <div class="success-reward-item">
+                        <span class="success-reward-icon">🏆</span>
+                        <span class="success-reward-text">3 Mesi di Corso Completamente Gratis!</span>
+                    </div>
+                `;
+            }
 
             // Show loading
             document.getElementById('step2').classList.remove('active');
@@ -1011,10 +1376,13 @@
             document.getElementById('successStep').classList.remove('active');
             document.getElementById('loadingStep').classList.remove('active');
             document.getElementById('step1').classList.add('active');
-            document.getElementById('progressFill').style.width = '50%';
-            document.getElementById('progressText').textContent = 'Passo 1 di 2';
-            document.getElementById('modalTitle').textContent = 'I Tuoi Dati';
-            document.getElementById('modalSubtitle').textContent = 'Iniziamo con le tue informazioni';
+            
+            // Reset friend counter
+            if (secondFriendAdded) {
+                removeSecondFriend();
+            }
+            friendCount = 1;
+            updateFriendCounter();
         }
 
         function resetAndClose() {
@@ -1064,6 +1432,9 @@
                 closeModal();
             }
         });
+
+        // Initialize
+        updateFriendCounter();
     </script>
 </body>
 </html>
