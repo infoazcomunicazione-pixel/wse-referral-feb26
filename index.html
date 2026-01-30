@@ -48,12 +48,13 @@
       z-index:100;
     }
 
+    /* ✅ LOGO PIÙ GRANDE */
     .logo{
       display:block;
       margin:0 auto 12px;
-      height:54px;          /* controlla qui la dimensione */
+      height:76px;          /* prima 54px */
       width:auto;
-      max-width:240px;
+      max-width:300px;
       object-fit:contain;
     }
 
@@ -390,7 +391,6 @@
 
     .form-step{ display:none; }
     .form-step.active{ display:block; animation:fadeIn .2s ease; }
-
     @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
 
     .form-group{ margin-bottom:16px; }
@@ -587,7 +587,9 @@
     }
     @keyframes spin{ 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
 
+    /* ✅ su mobile ancora più grande */
     @media (max-width:480px){
+      .logo{ height:86px; max-width:320px; } /* aumenta su iPhone */
       .rewards-grid{ grid-template-columns:1fr; }
       .hero-title{ font-size:24px; }
       .share-buttons{ flex-direction:column; }
@@ -602,7 +604,6 @@
 
     <!-- Header -->
     <div class="header">
-      <!-- Logo esterno: deve esistere nel repo con questo nome -->
       <img
         class="logo"
         src="wse-logo-82302e12428034dac110b9c59931c993-2.svg"
@@ -644,18 +645,20 @@
     <div class="friend-counter-section">
       <h3 class="counter-title">Amici che stai inserendo</h3>
       <div class="counter-display">
-        <div class="counter-number" id="friendCountDisplay">1</div>
+        <!-- ✅ parte da 0 -->
+        <div class="counter-number" id="friendCountDisplay">0</div>
         <div class="counter-label">Amici nel Form</div>
       </div>
 
       <div class="progress-rewards">
-        <div class="reward-checkpoint achieved" id="checkpoint1">
+        <!-- ✅ parte BLOCCATO -->
+        <div class="reward-checkpoint" id="checkpoint1">
           <div class="checkpoint-icon">🧳</div>
           <div class="checkpoint-info">
             <div class="checkpoint-number">1° Amico</div>
             <div class="checkpoint-prize">Trolley Esclusivo</div>
           </div>
-          <span class="checkpoint-status">✓</span>
+          <span class="checkpoint-status">🔒</span>
         </div>
 
         <div class="reward-checkpoint" id="checkpoint2">
@@ -755,9 +758,7 @@
         <p class="modal-subtitle">Compila il form per iniziare</p>
       </div>
 
-      <!-- FORM -->
       <form id="referralForm" action="https://formsubmit.co/catania@wallstreet.it" method="POST">
-        <!-- FormSubmit Configuration -->
         <input type="hidden" name="_subject" value="Nuovo Referral - Wall Street English Catania">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
@@ -788,7 +789,6 @@
             <h3 style="color:var(--wse-blue);font-size:18px;font-weight:900;margin-bottom:14px;">👥 Dati dei Tuoi Amici</h3>
 
             <div id="friendsContainer">
-              <!-- Friend 1 -->
               <div class="friend-entry" data-friend-number="1">
                 <div class="friend-entry-header">
                   <span class="friend-entry-title">1° Amico (Obbligatorio)</span>
@@ -816,7 +816,8 @@
               Aggiungi 2° Amico (Ottieni 3 Mesi Gratis!)
             </button>
 
-            <input type="hidden" name="Numero_Amici" id="friendCount" value="1">
+            <!-- ✅ parte da 0 e viene settato quando vai allo step2 -->
+            <input type="hidden" name="Numero_Amici" id="friendCount" value="0">
             <input type="hidden" name="Programma" value="Referral Febbraio 2026">
             <input type="hidden" name="Data_Invio" id="timestamp">
 
@@ -880,18 +881,24 @@
     const pageURL = window.location.href;
     const shareMessage = "🎯 Wall Street English - Porta amici e vinci! 1 amico = Trolley, 2 amici = 3 mesi gratis! Scopri di più:";
 
-    let friendCount = 1;
+    // ✅ parte da 0 (homepage)
+    let friendCount = 0;
     let secondFriendAdded = false;
 
     function updateFriendCounter(){
       document.getElementById("friendCountDisplay").textContent = friendCount;
       document.getElementById("friendCount").value = String(friendCount);
 
-      // checkpoint 1: sempre achieved (perché amico 1 c'è sempre)
-      document.getElementById("checkpoint1").classList.add("achieved");
-      document.querySelector("#checkpoint1 .checkpoint-status").textContent = "✓";
+      // checkpoint 1
+      if(friendCount >= 1){
+        document.getElementById("checkpoint1").classList.add("achieved");
+        document.querySelector("#checkpoint1 .checkpoint-status").textContent = "✓";
+      }else{
+        document.getElementById("checkpoint1").classList.remove("achieved");
+        document.querySelector("#checkpoint1 .checkpoint-status").textContent = "🔒";
+      }
 
-      // checkpoint 2: solo se aggiungi amico 2
+      // checkpoint 2
       if(friendCount >= 2){
         document.getElementById("checkpoint2").classList.add("achieved");
         document.querySelector("#checkpoint2 .checkpoint-status").textContent = "✓";
@@ -941,7 +948,7 @@
       if(el) el.remove();
       document.getElementById("addFriendBtn").style.display = "flex";
 
-      friendCount = 1;
+      friendCount = 1; // resta amico 1 nello step2
       secondFriendAdded = false;
       updateFriendCounter();
     }
@@ -964,11 +971,21 @@
         alert("⚠️ Inserisci Nome e Cognome!");
         return;
       }
+
+      // ✅ entrando nello step2, esiste il 1° amico
+      friendCount = 1;
+      secondFriendAdded = false;
+      updateFriendCounter();
+
       document.getElementById("step1").classList.remove("active");
       document.getElementById("step2").classList.add("active");
     }
 
     function goToStep1(){
+      // ✅ tornando allo step1, sul sito si vede 0 amici
+      friendCount = 0;
+      updateFriendCounter();
+
       document.getElementById("step2").classList.remove("active");
       document.getElementById("step1").classList.add("active");
     }
@@ -1015,9 +1032,14 @@
       document.getElementById("step2").classList.remove("active");
       document.getElementById("step1").classList.add("active");
 
-      if(secondFriendAdded) removeSecondFriend();
-      friendCount = 1;
+      // ✅ reset totale: homepage = 0
+      if(secondFriendAdded){
+        const el = document.getElementById("friend2Entry");
+        if(el) el.remove();
+        document.getElementById("addFriendBtn").style.display = "flex";
+      }
       secondFriendAdded = false;
+      friendCount = 0;
       updateFriendCounter();
     }
 
@@ -1026,59 +1048,39 @@
       closeModal();
     }
 
-    // Form submit (no redirect)
     document.getElementById("referralForm").addEventListener("submit", async function(e){
       e.preventDefault();
-
-      // timestamp
       document.getElementById("timestamp").value = new Date().toLocaleString("it-IT");
-
-      // premi in base al numero amici inseriti
       buildRewardsList();
-
-      // loading
       showLoading();
 
-      // invio (no-cors per evitare problemi CORS su GitHub Pages)
       try{
         const formData = new FormData(this);
-        await fetch(this.action, {
-          method: "POST",
-          body: formData,
-          mode: "no-cors"
-        });
-
-        // Mostra success anche se non possiamo leggere la response (no-cors)
+        await fetch(this.action, { method:"POST", body: formData, mode:"no-cors" });
         setTimeout(showSuccess, 700);
       }catch(err){
         alert("⚠️ Errore durante l'invio. Riprova.");
-        // torna allo step 2
         document.getElementById("loadingStep").classList.remove("active");
         document.getElementById("step2").classList.add("active");
       }
     });
 
-    // Share
     function shareWhatsApp(){
       const text = encodeURIComponent(shareMessage + " " + pageURL);
       window.open("https://wa.me/?text=" + text, "_blank");
     }
-
     function shareInstagram(){
       alert("📷 Copia il link e condividilo nelle tue Stories Instagram!\n\n" + pageURL);
       copyToClipboard(pageURL);
     }
-
     function shareTikTok(){
       alert("🎵 Copia il link e condividilo su TikTok!\n\n" + pageURL);
       copyToClipboard(pageURL);
     }
-
     function copyLink(){
       copyToClipboard(pageURL);
       alert("✓ Link copiato! Incollalo dove preferisci.");
     }
-
     function copyToClipboard(text){
       const textarea = document.createElement("textarea");
       textarea.value = text;
@@ -1090,7 +1092,6 @@
       document.body.removeChild(textarea);
     }
 
-    // Chiudi modal clic fuori
     document.getElementById("modal").addEventListener("click", function(e){
       if(e.target === this) closeModal();
     });
